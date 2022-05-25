@@ -291,6 +291,10 @@ class local_contact {
                         case 'name':        // Name field.
                         case 'email':       // Email field.
                         case 'subject':     // Subject field.
+                        case 'phone':
+                        case 'yourstatus':
+                        case 'mail':
+                        case 'referrer':
                             $key = get_string('field-' . $key, 'local_contact');
                         default:            // All other fields.
                             // Join array of values. Example: <select multiple>.

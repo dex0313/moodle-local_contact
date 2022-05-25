@@ -35,6 +35,10 @@ $string['field-name'] = 'name';
 $string['field-email'] = 'email';
 $string['field-subject'] = 'subject';
 $string['field-message'] = 'message';
+$string['field-phone'] = 'Телефон';
+$string['field-mail'] = 'Дополнительный адрес';
+$string['field-yourstatus'] = 'Статус';
+$string['field-referrer'] = 'Страница обращения';
 
 $string['noreplyto'] = 'No reply-to';
 $string['noreplyto_description'] = 'Some SMTP servers reject emails if the from and noreply-to fields in the heading are different. Enable this option to ensure that the no-reply field matches the from address instead of the sender\'s email address.';
