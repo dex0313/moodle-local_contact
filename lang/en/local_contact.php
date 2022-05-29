@@ -32,13 +32,17 @@ $string['configure'] = 'Configure this plugin';
 $string['confirmationpage'] = 'Status';
 
 $string['field-name'] = 'name';
+$string['field-lastname'] = 'lastname';
+$string['field-firstname'] = 'firstname';
+$string['field-patronim'] = 'patronim';
+$string['field-username'] = 'username';
+$string['field-phonenumber'] = 'phonenumber';
 $string['field-email'] = 'email';
 $string['field-subject'] = 'subject';
 $string['field-message'] = 'message';
-$string['field-phone'] = 'Телефон';
-$string['field-mail'] = 'Дополнительный адрес';
-$string['field-yourstatus'] = 'Статус';
-$string['field-referrer'] = 'Страница обращения';
+$string['field-time'] = 'time';
+$string['field-referrer'] = 'referrer';
+$string['field-role'] = 'role';
 
 $string['noreplyto'] = 'No reply-to';
 $string['noreplyto_description'] = 'Some SMTP servers reject emails if the from and noreply-to fields in the heading are different. Enable this option to ensure that the no-reply field matches the from address instead of the sender\'s email address.';
@@ -71,6 +75,9 @@ $string['confirmationemail'] = '
 $string['lockedout'] = 'LOCKED OUT';
 $string['notconfirmed'] = 'NOT CONFIRMED';
 $string['duplicateemailaddresses'] = 'There are multiple users with the same email address.';
+$string['loginnotfound'] = 'A user with this username does not exist.';
+$string['emptyemailfield'] = 'The user has not filled the email field.';
+$string['emptyemailindatabase'] = 'The email field in the database is empty.';
 
 $string['senderaddress'] = 'Custom sender';
 $string['senderaddress_description'] = 'Emails will be delivered from this email address. If this field is blank, emails will be delivered from the no-reply email address.';
