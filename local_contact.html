@@ -1,0 +1,145 @@
+<h3>Если у Вас есть вопросы по работе с платформой LMS.kantiana, пожалуйста, заполните эту форму.</h3><br>
+
+<div class="container">
+    <div class="justify-content-md-left d-flex">
+        <div class="col-md-6">
+            <form id="feedback" action="{wwwroot}/local/contact/index.php" method="post" class="contact-us-form">
+                <div class="form-group">
+                    Звездочкой <span style="color: red"><strong>*</strong></span> отмечены поля, обязательные для заполнения.
+                </div>
+                <fieldset>
+
+                    <!--Фамилия-->
+                    <div class="form-group">
+                        <label id="lastnamelabel" for="lastname"><b>Фамилия: </b><strong class="required"><span style="color: red">*</span></strong></label><br>
+                        <input id="lastname" name="lastname" type="text" class="form-control" size="58" maxlength="45" pattern="[A-Za-zА-Яа-яЁё\s]{1,}" title="Используйте только буквы и пробелы." required="">
+                    </div>
+
+                    <!--Имя-->
+
+                    <div class="form-group">
+                        <label id="firstnamelabel" for="firstname"><b>Имя: </b><strong class="required"><span style="color: red">*</span></strong></label><br>
+                        <input id="firstname" name="firstname" type="text" class="form-control" size="58" maxlength="45" pattern="[A-Za-zА-Яа-яЁё\s]{1,}" title="Используйте только буквы и пробелы." required="">
+                    </div>
+
+                    <!--Отчество-->
+                    <div class="form-group">
+                        <label id="patronimlabel" for="patronim"><b>Отчество:</b></label><br>
+                        <input id="patronim" name="patronim" type="text" class="form-control" size="58" maxlength="45" pattern="[A-Za-zА-Яа-яЁё\s]{1,}" title="Используйте только буквы и пробелы.">
+                    </div>
+
+                    <!--Логин-->
+                    <div class="form-group">
+                        <label id="usernamelabel" for="username"><b>Логин: </b></label><br>
+                        <input id="username" class="form-control" name="username" type="text" size="58" maxlength="45" value="{username}">
+                    </div>
+
+                    <!--Почта-->
+                    <div class="form-group">
+                        <label id="emaillabel" for="email"><b>Адрес электронной почты: </b><strong class="required"><span style="color: red">*</span></strong></label><br>
+                        <input id="email" name="email" type="email" class="form-control" size="58" maxlength="60" required="">
+                    </div>
+
+                    <!--Номер телефона-->
+                    <div class="form-group">
+                        <label for="phonenumber" id="phonenumberlabel"><b>Номер телефона: </b></label><br>
+                        <input class="form-control" id="phonenumber" name="phonenumber" type="tel" size="58" maxlength="20">
+                    </div>
+
+                    <!--Роль-->
+                    <div class="form-group">
+                        <label id="rolelabel" for="role">Ваша роль:</label><input type="checkbox" id="validate" size="0" maxlength="0" style="opacity: 0" required=""><br>
+                        <input id="student" name="role[]" type="checkbox" value="Студент БФУ им. И. Канта"><label>&nbsp;Студент БФУ им. И. Канта</label><br>
+                        <input id="teacher" name="role[]" type="checkbox" value="Сотрудник БФУ им. И. Канта"><label>&nbsp;Сотрудник БФУ им. И. Канта</label><br>
+                        <input id="studentdpo" name="role[]" type="checkbox" value="Слушатель курсов ДПО"><label>&nbsp;Слушатель курсов ДПО</label><br>
+                        <input id="other" name="role[]" type="checkbox" value="Другое"><label>&nbsp;Другое</label>
+                    </div>
+
+                    <!--Скрипт, делающий обязательным выбор хотя бы одного чекбокса для поля «Роль»-->
+                    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                    <script type="text/javascript">
+                        $('#validate').get(0).setCustomValidity('Выберите хотя бы один вариант.'); //Переопределение текста сообщения валидации
+
+                        $('#student, #teacher, #studentdpo, #other').change(function() {
+                            if ($('#student').prop('checked') || $('#teacher').prop('checked') || $('#studentdpo').prop('checked') || $('#other').prop('checked')) {
+                                $('#validate').remove(); //Удалить прозрачное поле, выдающее сообщение валидации для группы чекбоксов, если установлен хотя бы один флажок
+                            } else {
+                                $('#rolelabel').after('<input type="checkbox" id="validate" style="opacity: 0" required>'); //Вернуть поле, выдающее собщение валидации, если все флажки сняты
+                                $('#validate').get(0).setCustomValidity('Выберите хотя бы один вариант.'); //Повторное переопределение текста сообщения валидации для возвращенного поля
+                            }
+                        });
+                    </script>
+
+                    <!--Конец скрипта, делающего обязательным выбор хотя бы одного чекбокса для поля «Роль»-->
+
+                    <!--Сообщение-->
+                    <div class="form-group">
+                        <label for="message" id="messagelabel"><b>Опишите проблему или задайте вопрос: </b><strong class="required">*</strong></label><br>
+                        <textarea id="message" name="message" class="form-control" rows="5" minlength="5" title="Минимум пять символов" placeholder="Пожалуйста, подробно опишите проблему и добавьте все необходимые ссылки" required=""></textarea>
+                    </div>
+
+                    <!--Страница обращения-->
+                    <input type="hidden" id="referrer" name="referrer" value="">
+                    <script>
+                document.getElementById('referrer').value = document.referrer;
+            </script>
+
+                    <!--Время-->
+                    <input type="hidden" id="time" name="time">
+
+                    <!--Скрипт, вставляющий в поле «Время» дату и время обращения-->
+                    <script type="text/javascript">
+                /* функция добавления ведущих нулей */
+                /* (если число меньше десяти, перед числом добавляем ноль) */
+                function zero_first_format(value)
+				{
+                    if (value < 10)
+					{
+                        value = '0' + value;
+                    }
+                    return value;
+                }
+
+                 /* функция получения текущей даты и времени */
+                 function date_time()
+				 {
+					var current_datetime = new Date();
+                    var day = zero_first_format(current_datetime.getDate());
+                    var month = zero_first_format(current_datetime.getMonth() + 1);
+                    var year = current_datetime.getFullYear();
+                    var hours = zero_first_format(current_datetime.getHours());
+                    var minutes = zero_first_format(current_datetime.getMinutes());
+
+                    return day + "." + month + "." + year + " " + hours + ":" + minutes;
+                }
+                /*Добавляем время в момент отправки формы*/
+                $('#feedback').submit(function(e) {
+                document.getElementById('time').value = date_time();
+                });
+            </script>
+
+                    <!--RECAPTCHA-->
+                    {recaptcha}
+
+                    <!--Sesskey-->
+                    <input type="hidden" id="sesskey" name="sesskey" value="">
+                    <script>
+                document.getElementById('sesskey').value = M.cfg.sesskey;
+            </script>
+
+                    <!--Адрес, на который отправляется форма-->
+                    <input type="hidden" name="recipient" id="recipient" value="mailpost">
+                    <input type="hidden" name="markdown" id="markdown" value="trello">
+
+                    <!--Использовать кастомный вариант формы-->
+                    <input id="customform" name="customform" type="hidden" value="yes">
+
+                </fieldset>
+
+                <div>
+                    <input id="submit" name="submit" type="submit" class="btn btn-secondary" value="Отправить">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
