@@ -1,0 +1,58 @@
+<h3>Если у вас есть вопросы по работе с платформой LMS.kantiana, пожалуйста, заполните эту форму</h3><br>
+<div class="container">
+    <div class="justify-content-md-center d-flex">
+        <div class="col-md-6">
+            <form action="{wwwroot}/local/contact/index.php" method="post" class="contact-us-form">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="name" id="namelabel"><b>Ваше имя: </b><strong class="required">*</strong></label><br>
+                        <input class="form-control" id="name" name="name" type="text" size="58" maxlength="45" pattern="{2,}" title="Минимум три символа" required="required" {readonly}="" value="{fullname}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" id="emaillabel"><b>Адрес электронной почты: </b><strong class="required">*</strong></label><br>
+                        <input class="form-control" id="email" name="email" type="email" size="58" maxlength="60" required="required" value="{email}">
+                    </div>
+                    <div class="form-group">
+                        <label for="mail" id="maillabel"><b>В этом поле Вы можете указать дополнительный адрес электронной почты: </b></label><br>
+                        <input class="form-control" id="mail" name="mail" type="email" size="58" maxlength="60">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" id="phonelabel"><b>Номер телефона: </b></label><br>
+                        <input class="form-control" id="phone" name="phone" type="tel" size="58" maxlength="14">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="your_status" id="yourstatuslabel"><b>Ваш статус: </b><strong class="required">*</strong></label><br>
+                        <input type="radio" name="yourstatus" value="Студент БФУ им. И.Канта" required="required"> Студент БФУ им. И. Канта<br>
+                        <input type="radio" name="yourstatus" value="Сотрудник БФУ им. И.Канта" required="required"> Сотрудник БФУ им. И. Канта<br>
+                        <input type="radio" name="yourstatus" value="Слушатель курсов ДПО" required="required"> Слушатель курсов ДПО<br>
+                        <input type="radio" name="yourstatus" value="Другое" required="required"> Другое
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" id="messagelabel"><b>Опишите проблему или задайте вопрос: </b><strong class="required">*</strong></label><br>
+                        <textarea class="form-control" id="message" name="message" rows="5" minlength="5" title="Минимум пять символов" required="required" placeholder="Пожалуйста, подробно опишите проблему и добавьте все необходимые ссылки"></textarea>
+                    </div>
+                    <input type="hidden" name="recipient" id="recipient" value="tech support">
+                    <!--
+                    <input type="hidden" id="username" name="username" value="{username}">
+                     -->
+                    <input type="hidden" id="referrer" name="referrer" value="">
+                    <script>
+                        document.getElementById('referrer').value = document.referrer;
+                    </script>
+
+                    <input type="hidden" id="sesskey" name="sesskey" value="">
+                    <script>
+                        document.getElementById('sesskey').value = M.cfg.sesskey;
+                    </script>
+                    {recaptcha}
+                    <br>
+                </fieldset>
+                <div>
+                    <input class="btn btn-secondary" type="submit" name="submit" id="submit" value="Отправить">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
